@@ -100,7 +100,7 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/gst-validate-launcher/
 # should plugins be here or somewhere else?
 %{_libdir}/gstreamer-1.0/validate/libgstvalidatefaultinjection.so
-%{_libdir}/gstreamer-1.0/validate/libgstvalidateflow.so
+#{_libdir}/gstreamer-1.0/validate/libgstvalidateflow.so
 %{_libdir}/gstreamer-1.0/validate/libgstvalidategapplication.so
 %{_libdir}/gstreamer-1.0/validate/libgstvalidategtk.so
 %{_libdir}/gstreamer-1.0/validate/libgstvalidatessim.so
