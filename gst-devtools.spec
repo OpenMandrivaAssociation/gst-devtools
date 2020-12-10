@@ -1,3 +1,5 @@
+%define bname gstreamer1.0
+
 %define api	1.0
 %define major	0
 %define gmajor	1.0
@@ -8,14 +10,14 @@
 
 %global __python %{__python3}
 
-Name:		gstreamer1.0-validate
+Name:		%{bname}-devtools
 Summary:	Suite of tools to run GStreamer1.0 integration tests
-Version:	1.16.3
+Version:	1.18.2
 Release:	1
 License:	LGPLv2+
 Group:		Video/Utilities
 Url:		https://gstreamer.freedesktop.org/
-Source0:	https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-%{version}.tar.xz
+Source0:	https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-%{version}.tar.xz
 BuildRequires:	gettext-devel
 BuildRequires:	python
 BuildRequires:	pkgconfig(cairo)
@@ -27,6 +29,8 @@ BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libunwind)
 BuildRequires:	pkgconfig(libdw)
 Requires:	%{name}-scenarios >= %{version}-%{release}
+Obsoletes:	gstreamer1.0-validate < 1.18.0
+Provides:	gstreamer1.0-validate = %{version}-%{release}
 
 %description
 The goal of GstValidate is to be able to detect when elements are not
@@ -71,24 +75,18 @@ BuildArch:	noarch
 This package contains the scenario files for %{name}.
 
 %prep
-%setup -qn gst-validate-%{version}
+%setup -qn gst-devtools-%{version}
 %autopatch -p1
 
-# make autoreconf happy
-sed -i -e 's,\(^AM_INIT_AUTOMAKE\)\((\[\(.*\)\])\|(\(.*\))\|.*\),\1([\3\4 subdir-objects]),' configure.ac
-
 %build
-autoreconf -vfi
-%configure2_5x \
-	--with-package-name='%{_vendor} %{name} package' \
-	--with-package-origin='https://www.%{_real_vendor}.org' \
-	--disable-static \
-	--disable-gtk-doc-html
-%make_build
+%meson \
+	-Dpackage-name='%{_vendor} %{name} package' \
+	-Dpackage-origin='https://www.%{_real_vendor}.org' \
+	-Ddoc=%{?with_docs:enabled}%{?!with_docs:disabled}
+%meson_build
 
 %install
-%make_install
-
+%meson_install
 #we don't want these
 find %{buildroot} -name "*.la" -delete
 
