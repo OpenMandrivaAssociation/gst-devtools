@@ -118,15 +118,13 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/girepository-1.0/GstValidate-%{gmajor}.typelib
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/gst-validate-%{api}/
-%doc %{_datadir}/gtk-doc/html/gst-validate-plugins-%{api}/
+
 %{_includedir}/gstreamer-1.0/gst/validate/
-%{_includedir}/gstreamer-1.0/lib/validate/
 %{_libdir}/pkgconfig/gst-validate-%{api}.pc
 %{_datadir}/gir-1.0/GstValidate-%{gmajor}.gir
 %{_libdir}/libgstvalidate-%{api}.so
 %{_libdir}/libgstvalidate-default-overrides-%{api}.so
-%{_libdir}/libgstvalidatevideo-%{api}.so
+#{_libdir}/libgstvalidatevideo-%{api}.so
 
 %files scenarios
 %{_datadir}/gstreamer-1.0/validate/
