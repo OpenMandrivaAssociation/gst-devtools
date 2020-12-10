@@ -111,8 +111,8 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/libgstvalidate-%{api}.so.%{major}.*
 %{_libdir}/libgstvalidate-default-overrides-%{api}.so.%{major}
 %{_libdir}/libgstvalidate-default-overrides-%{api}.so.%{major}.*
-%{_libdir}/libgstvalidatevideo-%{api}.so.%{major}
-%{_libdir}/libgstvalidatevideo-%{api}.so.%{major}.*
+#{_libdir}/libgstvalidatevideo-%{api}.so.%{major}
+#{_libdir}/libgstvalidatevideo-%{api}.so.%{major}.*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GstValidate-%{gmajor}.typelib
