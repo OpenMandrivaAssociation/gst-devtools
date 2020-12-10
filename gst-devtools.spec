@@ -19,6 +19,7 @@ Group:		Video/Utilities
 Url:		https://gstreamer.freedesktop.org/
 Source0:	https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-%{version}.tar.xz
 BuildRequires:	gettext-devel
+BuildRequires:  meson
 BuildRequires:	python
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
