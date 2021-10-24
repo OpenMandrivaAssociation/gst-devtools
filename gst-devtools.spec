@@ -12,7 +12,7 @@
 
 Name:		%{bname}-devtools
 Summary:	Suite of tools to run GStreamer1.0 integration tests
-Version:	1.18.4
+Version:	1.19.2
 Release:	1
 License:	LGPLv2+
 Group:		Video/Utilities
