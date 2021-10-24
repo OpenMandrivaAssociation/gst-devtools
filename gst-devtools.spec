@@ -83,7 +83,8 @@ This package contains the scenario files for %{name}.
 %meson \
 	-Dpackage-name='%{_vendor} %{name} package' \
 	-Dpackage-origin='https://www.%{_real_vendor}.org' \
-	-Ddoc=%{?with_docs:enabled}%{?!with_docs:disabled}
+	-Ddoc=%{?with_docs:enabled}%{?!with_docs:disabled} \
+	--buildtype=release
 %meson_build
 
 %install
