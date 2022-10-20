@@ -117,7 +117,6 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/girepository-1.0/GstValidate-%{gmajor}.typelib
 
 %files -n %{devname}
-
 %{_includedir}/gstreamer-1.0/gst/validate/
 #{_libdir}/pkgconfig/gst-validate-%{api}.pc
 %{_datadir}/gir-1.0/GstValidate-%{gmajor}.gir
