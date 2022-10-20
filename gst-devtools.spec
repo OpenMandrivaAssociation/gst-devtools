@@ -119,7 +119,7 @@ find %{buildroot} -name "*.la" -delete
 %files -n %{devname}
 
 %{_includedir}/gstreamer-1.0/gst/validate/
-%{_libdir}/pkgconfig/gst-validate-%{api}.pc
+#{_libdir}/pkgconfig/gst-validate-%{api}.pc
 %{_datadir}/gir-1.0/GstValidate-%{gmajor}.gir
 %{_libdir}/libgstvalidate-%{api}.so
 %{_libdir}/libgstvalidate-default-overrides-%{api}.so
