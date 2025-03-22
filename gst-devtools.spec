@@ -21,6 +21,7 @@ Source0:	https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-%{versi
 BuildRequires:	gettext-devel
 BuildRequires:  meson
 BuildRequires:	python
+BuildRequires:	rust-packaging
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gstreamer-1.0)
