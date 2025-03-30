@@ -96,6 +96,7 @@ find %{buildroot} -name "*.la" -delete
 %{_bindir}/gst-validate-images-check-1.0
 %{_bindir}/gst-validate-launcher
 %{_bindir}/gst-validate-media-check-1.0
+%{_bindir}/gst-dots-viewer
 #{_bindir}/gst-validate-transcoding-1.0
 %{_libdir}/gst-validate-launcher/
 # should plugins be here or somewhere else?
