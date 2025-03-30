@@ -18,6 +18,8 @@ License:	LGPLv2+
 Group:		Video/Utilities
 Url:		https://gstreamer.freedesktop.org/
 Source0:	https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-%{version}.tar.xz
+# Rust sucks
+Source1:	vendor.tar.xz
 BuildRequires:	gettext-devel
 BuildRequires:  meson
 BuildRequires:	python
@@ -77,8 +79,20 @@ BuildArch:	noarch
 This package contains the scenario files for %{name}.
 
 %prep
-%setup -qn gst-devtools-%{version}
-%autopatch -p1
+%autosetup -p1 -n gst-devtools-%{version}
+
+# Rust SUCKS
+cd dots-viewer
+tar xf %{S:1}
+mkdir .cargo
+cat >>.cargo/config.toml <<EOF
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+EOF
 
 %build
 %meson \
